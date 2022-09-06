@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int a, b;
+		a = sc.nextInt(); // 첫번째 입력값 a에 대입
+		b = sc.nextInt(); // 두번째 입력값 b에 대입
+
+		System.out.println(a * (b % 10)); // b의 1의 자리를 구해 계산
+		System.out.println(a * ((b % 100) / 10)); // b의 10의 자리를 구해 계산
+		System.out.println(a * (b / 100)); // b의 100의 자리를 구해 계산
+		System.out.println(a * b); // 전체 자리 계산
+	}
+}
