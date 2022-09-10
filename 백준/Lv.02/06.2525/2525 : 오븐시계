@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a, b, c, min;
+		a = sc.nextInt(); // 현재 시간 대입
+		b = sc.nextInt(); // 현재 분 대입
+		c = sc.nextInt(); // 필요한 시간(분단위) 대입
+
+		min = a * 60 + b + c; // 주어진 현재 시간을 분단위로 변환하여 대입
+
+		a = (min / 60) % 24; // 전체 시간(분)을 60으로 나눠 시간을 구하고, 24로 나눈 나머지를 구하여 23을 초과하는지 확인
+		b = min % 60; // 전체 시간(분)을 60으로 나눈 나머지(분)를 대입 
+		
+		System.out.println(a + " " + b); // 시와 분 사이의 공백을 포함하여 출력
+	}
+}

@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h, m;
+		int min;
+		h = sc.nextInt();
+		m = sc.nextInt();
+		
+		if(h == 0) // 입력받은 시간이 0일 경우 24로 바꿔 대입한다
+			h = 24;
+		
+		min = h * 60 + m - 45; 
+		
+		h = (min / 60) % 24; 
+		m = min % 60; 
+		System.out.println(h + " " + m);	
+	}
+}
