@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt(); // 응시자의 수
+		int k = sc.nextInt(); // 상을 받는 사람의 수
+		int[] x = new int[n]; // 학생n명의 점수를 담을 배열
+		
+		for(int i = 0; i < n; i++) { 
+			x[i] = sc.nextInt(); // 배열에 점수 담기
+		}
+		
+		Arrays.sort(x); // 오름차순으로 정렬
+		
+		System.out.println(x[n-k]); // 응시자의 수 - 상을 받는 사람의 수의 다음 점수가 커트라인!
+ 
+	}
+}
