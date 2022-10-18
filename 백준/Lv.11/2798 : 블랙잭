@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+    
+		int n = sc.nextInt(); // 카드의 개수
+		int m = sc.nextInt(); // 제시된 합
+		int[] arr = new int[n]; // 카드에 쓰인 수를 담을 배열
+		int sum = 0; // 카드 3장의 합을 담을 변수1
+
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+		for (int i = 0; i < n; i++) {
+			int sum2 = 0; // 카드 3장의 합을 담을 변수2
+			for (int j = 0; j < n; j++) {
+				if (i == j) // 카드1과 카드2의 값이 같을 경우
+					continue;
+				for (int k = 0; k < n; k++) {
+					if (i == k || j == k) // 카드1과 카드3의 값이 같거나, 카드2와 카드3의 값이 같을 경우
+						continue;
+					sum2 = arr[i] + arr[j] + arr[k]; // 카드 3장의 합
+					if (sum2 == m) { // 합이 제시된 합m과 같을 경우
+						sum = sum2; // 1차 결과값
+					} else if (sum2 > sum && sum2 < m) { // 카드 3장의 합이 기존의 결과보다 크고, 제시된 합m보다 작을 경우
+						sum = sum2;
+					}
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
