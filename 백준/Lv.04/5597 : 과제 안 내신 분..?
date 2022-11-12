@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int[] arr = new int[30]; // 전체 학생 수
+		
+		for(int i = 0; i < 28; i++) { // 과제를 낸 학생 수만큼 반복
+			int n = sc.nextInt(); // 제출 학생 출석 번호
+			arr[n-1] = 1; // n(출석번호) == n-1(배열의 n번째 값)을 1로 변경
+		}
+		
+		for(int i = 0; i < 30; i++) { 
+			if(arr[i] != 1) { // i번째 값이 1이 아니라면 (제출하지 않았다면)
+				System.out.println(i+1); // 출석번호 출력
+			}
+		}
+	}
+}
