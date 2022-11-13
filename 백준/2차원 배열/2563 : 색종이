@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		
+		int[][] arr = new int[100][100]; // 도화지의 크기
+		int n = Integer.parseInt(br.readLine()); // 색종이의 수
+		int cnt = 0; // 채워진 칸을 세는 변수
+	 	
+		for(int i = 0; i < n; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int x = Integer.parseInt(st.nextToken()); 
+			int y = Integer.parseInt(st.nextToken());
+			
+			for(int j = x; j < x+10; j++) { // 색종이의 가로 길이
+				for(int k = y; k < y+10; k++) { // 색종이의 세로 길이
+					if(arr[k][j] == 1) { // 이미 채워졌다면 continue
+						continue;
+					}
+					arr[k][j] = 1; // 색종이를 붙인 위치의 값을 1로 변경
+					cnt++; // 전체 면적 1 증가
+				}
+			}
+		}
+		System.out.println(cnt);
+	}
+}
